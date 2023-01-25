@@ -1,7 +1,12 @@
 from openpyxl import load_workbook
 
+import sys
 import utils
 
+ROW_TO_BEGIN_INSERTION = sys.argv[2]
+SPREADSHEET_FILENAME = sys.argv[1]
+
+print(sys.argv[1])
 workbook = load_workbook(filename='ATM.xlsx')
 workbook.sheetnames
 
@@ -33,9 +38,9 @@ for cell2 in l2:
                 sheet_2, col_appending_from)
             # append data to sheet 1
             utils.append_data_to_sheet(
-                sheet_1, data, col_appending_to, 14)
+                sheet_1, data, col_appending_to, ROW_TO_BEGIN_INSERTION)
 
-        # if there is not match of tiles then do nothing
+        # if there is not a match of titles then do nothing
         else:
             continue
 
